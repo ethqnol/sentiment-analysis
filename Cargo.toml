@@ -1,0 +1,21 @@
+[package]
+name = "sentiment-analysis"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+burn = { version = "0.16", features=["train", "tch", "wgpu"]}
+derive-new = "0.7.0"
+serde = "1.0.219"
+
+tokenizers = {version = "0.21.1", default-features = false, features = [
+  "onig",
+  "http",
+]}
+
+
+
+
+[features]
+default = ["burn/dataset", "burn/sqlite-bundled"]
+f16 = []

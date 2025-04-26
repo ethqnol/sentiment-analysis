@@ -1,0 +1,57 @@
+2025-04-26T17:21:05.053455Z  INFO cubecl_wgpu::runtime: Using adapter AdapterInfo { name: "Apple M2", vendor: 0, device: 0, device_type: IntegratedGpu, driver: "", driver_info: "", backend: Metal }    
+2025-04-26T17:21:05.065476Z  INFO cubecl_wgpu::runtime: Created wgpu compute server on device Device { context: ContextWgpuCore { type: "Native" }, data: Any { .. } } => AdapterInfo { name: "Apple M2", vendor: 0, device: 0, device_type: IntegratedGpu, driver: "", driver_info: "", backend: Metal }    
+2025-04-26T17:21:05.039741Z  INFO burn_train::learner::train_val: Fitting the model:
+ Model {
+  lstm: BiLstm {d_input: 256, d_hidden: 256, bias: true, params: 1052672}
+  linear: Linear {d_input: 512, d_output: 2, bias: true, params: 1026}
+  dropout: Dropout {prob: 0.3}
+  embedding: Embedding {n_embedding: 28996, d_model: 256, params: 7422976}
+  params: 8476674
+}    
+2025-04-26T17:21:05.097752Z  INFO burn_train::learner::epoch: Executing training step for epoch 1    
+2025-04-26T17:21:26.301061Z  INFO burn_train::learner::epoch: Iteration 1    
+2025-04-26T17:22:15.983023Z  INFO burn_train::learner::epoch: Iteration 2    
+2025-04-26T17:22:57.630749Z  INFO burn_train::learner::epoch: Iteration 3    
+2025-04-26T17:23:43.101403Z  INFO burn_train::learner::epoch: Iteration 4    
+2025-04-26T17:24:33.066852Z  INFO burn_train::learner::epoch: Iteration 5    
+2025-04-26T17:25:15.070603Z  INFO burn_train::learner::epoch: Iteration 6    
+2025-04-26T17:25:57.153241Z  INFO burn_train::learner::epoch: Iteration 7    
+2025-04-26T17:26:36.597773Z  INFO burn_train::learner::epoch: Iteration 8    
+2025-04-26T17:27:13.537718Z  INFO burn_train::learner::epoch: Iteration 9    
+2025-04-26T17:27:52.850371Z  INFO burn_train::learner::epoch: Iteration 10    
+2025-04-26T17:28:30.437247Z  INFO burn_train::learner::epoch: Iteration 11    
+2025-04-26T17:29:08.969339Z  INFO burn_train::learner::epoch: Iteration 12    
+2025-04-26T17:29:48.647957Z  INFO burn_train::learner::epoch: Iteration 13    
+2025-04-26T17:30:29.892636Z  INFO burn_train::learner::epoch: Iteration 14    
+2025-04-26T17:31:09.719828Z  INFO burn_train::learner::epoch: Iteration 15    
+2025-04-26T17:31:51.508717Z  INFO burn_train::learner::epoch: Iteration 16    
+2025-04-26T17:32:32.586991Z  INFO burn_train::learner::epoch: Iteration 17    
+2025-04-26T17:33:10.114259Z  INFO burn_train::learner::epoch: Iteration 18    
+2025-04-26T17:33:48.383125Z  INFO burn_train::learner::epoch: Iteration 19    
+2025-04-26T17:34:26.859752Z  INFO burn_train::learner::epoch: Iteration 20    
+2025-04-26T17:34:59.232234Z  INFO burn_train::learner::epoch: Iteration 21    
+2025-04-26T17:35:23.219249Z  INFO burn_train::learner::epoch: Iteration 22    
+2025-04-26T17:35:47.918358Z  INFO burn_train::learner::epoch: Iteration 23    
+2025-04-26T17:36:12.243589Z  INFO burn_train::learner::epoch: Iteration 24    
+2025-04-26T17:36:49.663054Z  INFO burn_train::learner::epoch: Iteration 25    
+2025-04-26T17:37:27.985589Z  INFO burn_train::learner::epoch: Iteration 26    
+2025-04-26T17:38:12.901046Z  INFO burn_train::learner::epoch: Iteration 27    
+2025-04-26T17:38:50.893866Z  INFO burn_train::learner::epoch: Iteration 28    
+2025-04-26T17:39:21.597964Z  INFO burn_train::learner::epoch: Iteration 29    
+2025-04-26T17:40:02.242002Z  INFO burn_train::learner::epoch: Iteration 30    
+2025-04-26T17:40:30.374538Z  INFO burn_train::learner::epoch: Iteration 31    
+2025-04-26T17:40:54.878905Z  INFO burn_train::learner::epoch: Iteration 32    
+2025-04-26T17:41:20.417190Z  INFO burn_train::learner::epoch: Iteration 33    
+2025-04-26T17:41:51.208702Z  INFO burn_train::learner::epoch: Iteration 34    
+2025-04-26T17:42:24.320796Z  INFO burn_train::learner::epoch: Iteration 35    
+2025-04-26T17:43:03.336514Z  INFO burn_train::learner::epoch: Iteration 36    
+2025-04-26T17:43:35.490002Z  INFO burn_train::learner::epoch: Iteration 37    
+2025-04-26T17:44:04.285170Z  INFO burn_train::learner::epoch: Iteration 38    
+2025-04-26T17:44:36.267683Z  INFO burn_train::learner::epoch: Iteration 39    
+2025-04-26T17:45:03.912207Z  INFO burn_train::learner::epoch: Iteration 40    
+2025-04-26T17:45:28.033446Z  INFO burn_train::learner::epoch: Iteration 41    
+2025-04-26T17:45:43.827433Z  INFO burn_train::learner::epoch: Iteration 42    
+2025-04-26T17:45:43.898513Z ERROR burn_train::learner::application_logger: PANIC => panicked at /Users/ewu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/burn-train-0.16.1/src/renderer/tui/renderer.rs:290:9:
+Killing training from user input.    
+2025-04-26T17:45:58.490384Z ERROR burn_train::learner::application_logger: PANIC => panicked at /Users/ewu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/burn-train-0.16.1/src/metric/processor/async_wrapper.rs:48:58:
+called `Result::unwrap()` on an `Err` value: SendError(..)    
