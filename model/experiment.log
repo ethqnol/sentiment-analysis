@@ -1,57 +1,236 @@
-2025-04-26T17:21:05.053455Z  INFO cubecl_wgpu::runtime: Using adapter AdapterInfo { name: "Apple M2", vendor: 0, device: 0, device_type: IntegratedGpu, driver: "", driver_info: "", backend: Metal }    
-2025-04-26T17:21:05.065476Z  INFO cubecl_wgpu::runtime: Created wgpu compute server on device Device { context: ContextWgpuCore { type: "Native" }, data: Any { .. } } => AdapterInfo { name: "Apple M2", vendor: 0, device: 0, device_type: IntegratedGpu, driver: "", driver_info: "", backend: Metal }    
-2025-04-26T17:21:05.039741Z  INFO burn_train::learner::train_val: Fitting the model:
+2025-04-26T22:26:51.615490Z  INFO cubecl_wgpu::runtime: Using adapter AdapterInfo { name: "Apple M2", vendor: 0, device: 0, device_type: IntegratedGpu, driver: "", driver_info: "", backend: Metal }    
+2025-04-26T22:26:51.621282Z  INFO cubecl_wgpu::runtime: Created wgpu compute server on device Device { context: ContextWgpuCore { type: "Native" }, data: Any { .. } } => AdapterInfo { name: "Apple M2", vendor: 0, device: 0, device_type: IntegratedGpu, driver: "", driver_info: "", backend: Metal }    
+2025-04-26T22:26:51.599560Z  INFO burn_train::learner::train_val: Fitting the model:
  Model {
-  lstm: BiLstm {d_input: 256, d_hidden: 256, bias: true, params: 1052672}
-  linear: Linear {d_input: 512, d_output: 2, bias: true, params: 1026}
+  lstm: BiLstm {d_input: 512, d_hidden: 512, bias: true, params: 4202496}
+  linear: Linear {d_input: 1024, d_output: 2, bias: true, params: 2050}
   dropout: Dropout {prob: 0.3}
-  embedding: Embedding {n_embedding: 28996, d_model: 256, params: 7422976}
-  params: 8476674
+  layer_norm: LayerNorm {d_model: 1024, epsilon: 0.00001, params: 2048}
+  embedding: Embedding {n_embedding: 28996, d_model: 512, params: 14845952}
+  params: 19052546
 }    
-2025-04-26T17:21:05.097752Z  INFO burn_train::learner::epoch: Executing training step for epoch 1    
-2025-04-26T17:21:26.301061Z  INFO burn_train::learner::epoch: Iteration 1    
-2025-04-26T17:22:15.983023Z  INFO burn_train::learner::epoch: Iteration 2    
-2025-04-26T17:22:57.630749Z  INFO burn_train::learner::epoch: Iteration 3    
-2025-04-26T17:23:43.101403Z  INFO burn_train::learner::epoch: Iteration 4    
-2025-04-26T17:24:33.066852Z  INFO burn_train::learner::epoch: Iteration 5    
-2025-04-26T17:25:15.070603Z  INFO burn_train::learner::epoch: Iteration 6    
-2025-04-26T17:25:57.153241Z  INFO burn_train::learner::epoch: Iteration 7    
-2025-04-26T17:26:36.597773Z  INFO burn_train::learner::epoch: Iteration 8    
-2025-04-26T17:27:13.537718Z  INFO burn_train::learner::epoch: Iteration 9    
-2025-04-26T17:27:52.850371Z  INFO burn_train::learner::epoch: Iteration 10    
-2025-04-26T17:28:30.437247Z  INFO burn_train::learner::epoch: Iteration 11    
-2025-04-26T17:29:08.969339Z  INFO burn_train::learner::epoch: Iteration 12    
-2025-04-26T17:29:48.647957Z  INFO burn_train::learner::epoch: Iteration 13    
-2025-04-26T17:30:29.892636Z  INFO burn_train::learner::epoch: Iteration 14    
-2025-04-26T17:31:09.719828Z  INFO burn_train::learner::epoch: Iteration 15    
-2025-04-26T17:31:51.508717Z  INFO burn_train::learner::epoch: Iteration 16    
-2025-04-26T17:32:32.586991Z  INFO burn_train::learner::epoch: Iteration 17    
-2025-04-26T17:33:10.114259Z  INFO burn_train::learner::epoch: Iteration 18    
-2025-04-26T17:33:48.383125Z  INFO burn_train::learner::epoch: Iteration 19    
-2025-04-26T17:34:26.859752Z  INFO burn_train::learner::epoch: Iteration 20    
-2025-04-26T17:34:59.232234Z  INFO burn_train::learner::epoch: Iteration 21    
-2025-04-26T17:35:23.219249Z  INFO burn_train::learner::epoch: Iteration 22    
-2025-04-26T17:35:47.918358Z  INFO burn_train::learner::epoch: Iteration 23    
-2025-04-26T17:36:12.243589Z  INFO burn_train::learner::epoch: Iteration 24    
-2025-04-26T17:36:49.663054Z  INFO burn_train::learner::epoch: Iteration 25    
-2025-04-26T17:37:27.985589Z  INFO burn_train::learner::epoch: Iteration 26    
-2025-04-26T17:38:12.901046Z  INFO burn_train::learner::epoch: Iteration 27    
-2025-04-26T17:38:50.893866Z  INFO burn_train::learner::epoch: Iteration 28    
-2025-04-26T17:39:21.597964Z  INFO burn_train::learner::epoch: Iteration 29    
-2025-04-26T17:40:02.242002Z  INFO burn_train::learner::epoch: Iteration 30    
-2025-04-26T17:40:30.374538Z  INFO burn_train::learner::epoch: Iteration 31    
-2025-04-26T17:40:54.878905Z  INFO burn_train::learner::epoch: Iteration 32    
-2025-04-26T17:41:20.417190Z  INFO burn_train::learner::epoch: Iteration 33    
-2025-04-26T17:41:51.208702Z  INFO burn_train::learner::epoch: Iteration 34    
-2025-04-26T17:42:24.320796Z  INFO burn_train::learner::epoch: Iteration 35    
-2025-04-26T17:43:03.336514Z  INFO burn_train::learner::epoch: Iteration 36    
-2025-04-26T17:43:35.490002Z  INFO burn_train::learner::epoch: Iteration 37    
-2025-04-26T17:44:04.285170Z  INFO burn_train::learner::epoch: Iteration 38    
-2025-04-26T17:44:36.267683Z  INFO burn_train::learner::epoch: Iteration 39    
-2025-04-26T17:45:03.912207Z  INFO burn_train::learner::epoch: Iteration 40    
-2025-04-26T17:45:28.033446Z  INFO burn_train::learner::epoch: Iteration 41    
-2025-04-26T17:45:43.827433Z  INFO burn_train::learner::epoch: Iteration 42    
-2025-04-26T17:45:43.898513Z ERROR burn_train::learner::application_logger: PANIC => panicked at /Users/ewu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/burn-train-0.16.1/src/renderer/tui/renderer.rs:290:9:
+2025-04-26T22:26:51.657137Z  INFO burn_train::learner::epoch: Executing training step for epoch 1    
+2025-04-26T22:26:52.261190Z  INFO burn_train::learner::epoch: Iteration 1    
+2025-04-26T22:26:52.296696Z  INFO cubecl_runtime::tune::tuner: Tuning MatmulAutotuneKey - Round: false, Broadcast: false, M: 32, K: 512, N: 512, Batch: 1, Dtype: F32    
+2025-04-26T22:26:52.442657Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        341.379µs
+  Variance    2.000ns
+  Median      371.375µs
+  Min         265.583µs
+  Max         377.625µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:52.497970Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulSimple<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        931.970µs
+  Variance    0.000ns
+  Median      933.959µs
+  Min         917.291µs
+  Max         939.125µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:52.498131Z  INFO cubecl_runtime::tune::tuner: Fastest result burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32>-MatmulAutotuneKey - Round: false, Broadcast: false, M: 32, K: 512, N: 512, Batch: 1, Dtype: F32. 
+ Top 3 times: [371.375µs, 933.959µs]    
+2025-04-26T22:26:54.805975Z  INFO cubecl_runtime::tune::tuner: Tuning ReduceAutotuneKey - Dtype: F32, ReduceAxisShape: 1024, ReduceAxisStride: 1, OuterAxesProduct: 32    
+2025-04-26T22:26:54.868967Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::reduce::tune::reduce_ops::Reduce<cubecl_wgpu::runtime::WgpuRuntime, f32, f32, cubecl_reduce::instructions::mean::Mean> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        64.379µs
+  Variance    0.000ns
+  Median      64.333µs
+  Min         55.250µs
+  Max         74.292µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:54.905018Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::reduce::tune::reduce_ops::ReduceShared<cubecl_wgpu::runtime::WgpuRuntime, f32, f32, cubecl_reduce::instructions::mean::Mean> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        73.050µs
+  Variance    0.000ns
+  Median      73.000µs
+  Min         72.708µs
+  Max         73.542µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:54.907902Z  INFO cubecl_runtime::tune::tuner: Fastest result burn_jit::kernel::reduce::tune::reduce_ops::Reduce<cubecl_wgpu::runtime::WgpuRuntime, f32, f32, cubecl_reduce::instructions::mean::Mean>-ReduceAutotuneKey - Dtype: F32, ReduceAxisShape: 1024, ReduceAxisStride: 1, OuterAxesProduct: 32. 
+ Top 3 times: [64.333µs, 73µs, 18446744073709551615.999999999s]    
+2025-04-26T22:26:54.953691Z  INFO cubecl_runtime::tune::tuner: Tuning MatmulAutotuneKey - Round: false, Broadcast: false, M: 32, K: 1024, N: 2, Batch: 1, Dtype: F32    
+2025-04-26T22:26:55.015333Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        794.404µs
+  Variance    0.000ns
+  Median      794.125µs
+  Min         781.250µs
+  Max         808.042µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:55.035918Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulSimple<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        142.070µs
+  Variance    0.000ns
+  Median      142.000µs
+  Min         139.792µs
+  Max         145.459µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:55.036010Z  INFO cubecl_runtime::tune::tuner: Fastest result burn_jit::kernel::matmul::tune::base::MatmulSimple<cubecl_wgpu::runtime::WgpuRuntime, f32>-MatmulAutotuneKey - Round: false, Broadcast: false, M: 32, K: 1024, N: 2, Batch: 1, Dtype: F32. 
+ Top 3 times: [142µs, 794.125µs]    
+2025-04-26T22:26:55.588884Z  INFO cubecl_runtime::tune::tuner: Tuning MatmulAutotuneKey - Round: false, Broadcast: false, M: 32, K: 2, N: 1024, Batch: 1, Dtype: F32    
+2025-04-26T22:26:55.635822Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        84.837µs
+  Variance    0.000ns
+  Median      84.958µs
+  Min         84.250µs
+  Max         85.125µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:55.662083Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulSimple<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        364.125µs
+  Variance    0.000ns
+  Median      364.250µs
+  Min         363.041µs
+  Max         365.208µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:55.662165Z  INFO cubecl_runtime::tune::tuner: Fastest result burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32>-MatmulAutotuneKey - Round: false, Broadcast: false, M: 32, K: 2, N: 1024, Batch: 1, Dtype: F32. 
+ Top 3 times: [84.958µs, 364.25µs]    
+2025-04-26T22:26:55.717265Z  INFO cubecl_runtime::tune::tuner: Tuning MatmulAutotuneKey - Round: false, Broadcast: false, M: 1024, K: 32, N: 2, Batch: 1, Dtype: F32    
+2025-04-26T22:26:55.776017Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        82.558µs
+  Variance    0.000ns
+  Median      82.583µs
+  Min         82.209µs
+  Max         82.875µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:55.791527Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulSimple<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        124.466µs
+  Variance    0.000ns
+  Median      124.375µs
+  Min         124.167µs
+  Max         125.500µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:55.791604Z  INFO cubecl_runtime::tune::tuner: Fastest result burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32>-MatmulAutotuneKey - Round: false, Broadcast: false, M: 1024, K: 32, N: 2, Batch: 1, Dtype: F32. 
+ Top 3 times: [82.583µs, 124.375µs]    
+2025-04-26T22:26:55.856608Z  INFO cubecl_runtime::tune::tuner: Tuning ReduceAutotuneKey - Dtype: F32, ReduceAxisShape: 32, ReduceAxisStride: 1024, OuterAxesProduct: 1    
+2025-04-26T22:26:55.878590Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::reduce::tune::reduce_ops::Reduce<cubecl_wgpu::runtime::WgpuRuntime, f32, f32, cubecl_reduce::instructions::sum::Sum> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        29.704µs
+  Variance    0.000ns
+  Median      28.959µs
+  Min         27.292µs
+  Max         34.000µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:55.913449Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::reduce::tune::reduce_ops::ReduceShared<cubecl_wgpu::runtime::WgpuRuntime, f32, f32, cubecl_reduce::instructions::sum::Sum> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        192.704µs
+  Variance    1.000ns
+  Median      209.542µs
+  Min         159.125µs
+  Max         289.542µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:55.916141Z  INFO cubecl_runtime::tune::tuner: Fastest result burn_jit::kernel::reduce::tune::reduce_ops::Reduce<cubecl_wgpu::runtime::WgpuRuntime, f32, f32, cubecl_reduce::instructions::sum::Sum>-ReduceAutotuneKey - Dtype: F32, ReduceAxisShape: 32, ReduceAxisStride: 1024, OuterAxesProduct: 1. 
+ Top 3 times: [28.959µs, 209.542µs, 18446744073709551615.999999999s]    
+2025-04-26T22:26:56.068463Z  INFO cubecl_runtime::tune::tuner: Tuning MatmulAutotuneKey - Round: false, Broadcast: false, M: 512, K: 32, N: 512, Batch: 1, Dtype: F32    
+2025-04-26T22:26:56.119194Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        166.854µs
+  Variance    0.000ns
+  Median      167.208µs
+  Min         165.833µs
+  Max         167.500µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:56.140406Z  INFO cubecl_runtime::tune::tuner: Name: burn_jit::kernel::matmul::tune::base::MatmulSimple<cubecl_wgpu::runtime::WgpuRuntime, f32> => 
+―――――――― Result ―――――――――
+  Timing      device_only
+  Samples     10
+  Mean        495.729µs
+  Variance    0.000ns
+  Median      496.791µs
+  Min         488.125µs
+  Max         501.167µs
+―――――――――――――――――――――――――    
+2025-04-26T22:26:56.140505Z  INFO cubecl_runtime::tune::tuner: Fastest result burn_jit::kernel::matmul::tune::base::MatmulTiling2d<cubecl_wgpu::runtime::WgpuRuntime, f32>-MatmulAutotuneKey - Round: false, Broadcast: false, M: 512, K: 32, N: 512, Batch: 1, Dtype: F32. 
+ Top 3 times: [167.208µs, 496.791µs]    
+2025-04-26T22:27:08.225767Z  INFO burn_train::learner::epoch: Iteration 2    
+2025-04-26T22:27:16.172060Z  INFO burn_train::learner::epoch: Iteration 3    
+2025-04-26T22:27:22.638863Z  INFO burn_train::learner::epoch: Iteration 4    
+2025-04-26T22:27:27.952493Z  INFO burn_train::learner::epoch: Iteration 5    
+2025-04-26T22:27:33.295471Z  INFO burn_train::learner::epoch: Iteration 6    
+2025-04-26T22:27:38.486654Z  INFO burn_train::learner::epoch: Iteration 7    
+2025-04-26T22:27:43.870473Z  INFO burn_train::learner::epoch: Iteration 8    
+2025-04-26T22:27:49.104814Z  INFO burn_train::learner::epoch: Iteration 9    
+2025-04-26T22:27:54.323756Z  INFO burn_train::learner::epoch: Iteration 10    
+2025-04-26T22:27:59.616895Z  INFO burn_train::learner::epoch: Iteration 11    
+2025-04-26T22:28:04.832041Z  INFO burn_train::learner::epoch: Iteration 12    
+2025-04-26T22:28:10.196862Z  INFO burn_train::learner::epoch: Iteration 13    
+2025-04-26T22:28:15.425239Z  INFO burn_train::learner::epoch: Iteration 14    
+2025-04-26T22:28:20.721476Z  INFO burn_train::learner::epoch: Iteration 15    
+2025-04-26T22:28:25.900449Z  INFO burn_train::learner::epoch: Iteration 16    
+2025-04-26T22:28:31.210997Z  INFO burn_train::learner::epoch: Iteration 17    
+2025-04-26T22:28:36.556655Z  INFO burn_train::learner::epoch: Iteration 18    
+2025-04-26T22:28:41.797606Z  INFO burn_train::learner::epoch: Iteration 19    
+2025-04-26T22:28:47.077893Z  INFO burn_train::learner::epoch: Iteration 20    
+2025-04-26T22:28:52.443895Z  INFO burn_train::learner::epoch: Iteration 21    
+2025-04-26T22:28:57.661279Z  INFO burn_train::learner::epoch: Iteration 22    
+2025-04-26T22:29:02.926627Z  INFO burn_train::learner::epoch: Iteration 23    
+2025-04-26T22:29:08.485517Z  INFO burn_train::learner::epoch: Iteration 24    
+2025-04-26T22:29:13.811248Z  INFO burn_train::learner::epoch: Iteration 25    
+2025-04-26T22:29:19.115475Z  INFO burn_train::learner::epoch: Iteration 26    
+2025-04-26T22:29:24.680295Z  INFO burn_train::learner::epoch: Iteration 27    
+2025-04-26T22:29:30.124700Z  INFO burn_train::learner::epoch: Iteration 28    
+2025-04-26T22:29:35.480932Z  INFO burn_train::learner::epoch: Iteration 29    
+2025-04-26T22:29:40.855258Z  INFO burn_train::learner::epoch: Iteration 30    
+2025-04-26T22:29:46.173291Z  INFO burn_train::learner::epoch: Iteration 31    
+2025-04-26T22:29:52.004866Z  INFO burn_train::learner::epoch: Iteration 32    
+2025-04-26T22:29:57.288207Z  INFO burn_train::learner::epoch: Iteration 33    
+2025-04-26T22:30:02.663027Z  INFO burn_train::learner::epoch: Iteration 34    
+2025-04-26T22:30:07.937533Z  INFO burn_train::learner::epoch: Iteration 35    
+2025-04-26T22:30:13.148891Z  INFO burn_train::learner::epoch: Iteration 36    
+2025-04-26T22:30:18.605050Z  INFO burn_train::learner::epoch: Iteration 37    
+2025-04-26T22:30:23.999290Z  INFO burn_train::learner::epoch: Iteration 38    
+2025-04-26T22:30:29.534472Z  INFO burn_train::learner::epoch: Iteration 39    
+2025-04-26T22:30:34.782204Z  INFO burn_train::learner::epoch: Iteration 40    
+2025-04-26T22:30:40.027216Z  INFO burn_train::learner::epoch: Iteration 41    
+2025-04-26T22:30:45.680963Z  INFO burn_train::learner::epoch: Iteration 42    
+2025-04-26T22:30:51.366712Z  INFO burn_train::learner::epoch: Iteration 43    
+2025-04-26T22:30:56.991792Z  INFO burn_train::learner::epoch: Iteration 44    
+2025-04-26T22:31:02.310812Z  INFO burn_train::learner::epoch: Iteration 45    
+2025-04-26T22:31:07.637148Z  INFO burn_train::learner::epoch: Iteration 46    
+2025-04-26T22:31:13.074067Z  INFO burn_train::learner::epoch: Iteration 47    
+2025-04-26T22:31:18.384440Z  INFO burn_train::learner::epoch: Iteration 48    
+2025-04-26T22:31:23.788399Z  INFO burn_train::learner::epoch: Iteration 49    
+2025-04-26T22:31:29.180120Z  INFO burn_train::learner::epoch: Iteration 50    
+2025-04-26T22:31:34.546247Z  INFO burn_train::learner::epoch: Iteration 51    
+2025-04-26T22:31:40.059291Z  INFO burn_train::learner::epoch: Iteration 52    
+2025-04-26T22:31:45.475336Z  INFO burn_train::learner::epoch: Iteration 53    
+2025-04-26T22:31:50.790477Z  INFO burn_train::learner::epoch: Iteration 54    
+2025-04-26T22:31:56.258993Z  INFO burn_train::learner::epoch: Iteration 55    
+2025-04-26T22:32:01.471144Z  INFO burn_train::learner::epoch: Iteration 56    
+2025-04-26T22:32:06.563361Z  INFO burn_train::learner::epoch: Iteration 57    
+2025-04-26T22:32:11.632392Z  INFO burn_train::learner::epoch: Iteration 58    
+2025-04-26T22:32:16.678606Z  INFO burn_train::learner::epoch: Iteration 59    
+2025-04-26T22:32:16.707737Z ERROR burn_train::learner::application_logger: PANIC => panicked at /Users/ewu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/burn-train-0.16.1/src/renderer/tui/renderer.rs:290:9:
 Killing training from user input.    
-2025-04-26T17:45:58.490384Z ERROR burn_train::learner::application_logger: PANIC => panicked at /Users/ewu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/burn-train-0.16.1/src/metric/processor/async_wrapper.rs:48:58:
+2025-04-26T22:32:22.626223Z ERROR burn_train::learner::application_logger: PANIC => panicked at /Users/ewu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/burn-train-0.16.1/src/metric/processor/async_wrapper.rs:48:58:
 called `Result::unwrap()` on an `Err` value: SendError(..)    

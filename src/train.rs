@@ -23,10 +23,10 @@ static ARTIFACT_DIR: &str = "./model";
 
 #[derive(Config)]
 pub struct IMDBTrainingConfig {
-    #[config(default = 9)]
+    #[config(default = 7)]
     pub num_epochs: usize,
 
-    #[config(default = 512)]
+    #[config(default = 32)]
     pub batch_size: usize,
 
     #[config(default = 42)]
@@ -49,7 +49,6 @@ pub fn run<B: AutodiffBackend>(device: B::Device) {
     create_artifact_dir(ARTIFACT_DIR);
     let tokenizer = Arc::new(BertCasedTokenizer::default());
     let config_optimizer = AdamConfig::new();
-
     let config = IMDBTrainingConfig::new(config_optimizer, tokenizer.vocab_size());
     let lr_scheduler = NoamLrSchedulerConfig::new(1e-4)
             .with_warmup_steps(2500)

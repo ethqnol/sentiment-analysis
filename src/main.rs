@@ -2,7 +2,6 @@
 use burn::backend::wgpu::{Wgpu, WgpuDevice};
 use burn::{
     backend::Autodiff,
-    data::dataloader::Dataset,
     data::dataloader::batcher::Batcher,
     module::Module,
     prelude::*,
