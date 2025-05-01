@@ -4,12 +4,9 @@ use burn::{
     backend::Autodiff,
     data::dataloader::batcher::Batcher,
     module::Module,
-    prelude::*,
     record::{FullPrecisionSettings, NamedMpkFileRecorder},
 };
-use sentiment_analysis::data::{
-    IMDBClassificationBatcher, IMDBClassificationInference, IMDBClassificationItem,
-};
+use sentiment_analysis::data::IMDBClassificationBatcher;
 use sentiment_analysis::{
     data::{BertCasedTokenizer, Tokenizer},
     model::Model,
@@ -22,9 +19,6 @@ pub type WgpuBackend = Wgpu<f32, i32>;
 
 fn main() {
     run_train();
-
-    use std::env;
-    use std::path::PathBuf;
 
     let tokenizer = Arc::new(BertCasedTokenizer::default());
 

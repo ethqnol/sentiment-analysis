@@ -5,14 +5,14 @@ use crate::{
 use burn::{
     data::dataloader::DataLoaderBuilder,
     lr_scheduler::noam::NoamLrSchedulerConfig,
-    optim::{AdamConfig, decay::WeightDecayConfig},
+    optim::AdamConfig,
     prelude::*,
     record::{CompactRecorder, Recorder},
     tensor::backend::AutodiffBackend,
     train::{
         LearnerBuilder, MetricEarlyStoppingStrategy, StoppingCondition,
         metric::{
-            AccuracyMetric, CpuMemory, CpuTemperature, CpuUse, LossMetric,
+            AccuracyMetric, LossMetric,
             store::{Aggregate, Direction, Split},
         },
     },
@@ -26,7 +26,7 @@ pub struct IMDBTrainingConfig {
     #[config(default = 7)]
     pub num_epochs: usize,
 
-    #[config(default = 32)]
+    #[config(default = 64)]
     pub batch_size: usize,
 
     #[config(default = 42)]
@@ -52,7 +52,7 @@ pub fn run<B: AutodiffBackend>(device: B::Device) {
     let config = IMDBTrainingConfig::new(config_optimizer, tokenizer.vocab_size());
     let lr_scheduler = NoamLrSchedulerConfig::new(1e-4)
             .with_warmup_steps(2500)
-            .with_model_size(256)
+            .with_model_size(516)
             .init()
             .unwrap();
     let batcher_train =

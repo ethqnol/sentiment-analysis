@@ -10,9 +10,7 @@ use burn::{
     train::{ClassificationOutput, TrainOutput, TrainStep, ValidStep},
 };
 
-use crate::data::{
-    IMDBClassificationBatcher, IMDBClassificationInference, IMDBClassificationTraining,
-};
+use crate::data::IMDBClassificationTraining;
 
 #[derive(Module, Debug)]
 pub struct Model<B: Backend> {
@@ -25,7 +23,6 @@ pub struct Model<B: Backend> {
 
 impl<B: Backend> Model<B> {
     pub fn new(device: &B::Device, vocab_size: usize) -> Self {
-        let max_seq_len: usize = 512;
         let embed_dim: usize = 512;
         Self {
             lstm: BiLstmConfig::new(512, 512, true).init(device),
@@ -37,11 +34,11 @@ impl<B: Backend> Model<B> {
     }
 
     pub fn forward(&self, input: Tensor<B, 2, Int>, mask_pad: Tensor<B, 2, Bool>) -> Tensor<B, 2> {
-        let embedded_tokens = self.dropout.forward(self.embedding.forward(input.clone()));
+        let embedded_tokens = self.embedding.forward(input.clone());
         
         let (_output, lstm_state) = self.lstm.forward(embedded_tokens, None);
         
-        let [batch_size, seq_len, hidden_size] = _output.dims();
+        //let [batch_size, seq_len, hidden_size] = _output.dims();
         let hidden = lstm_state.hidden; 
         let [directions_layers, batch_size, hidden_size] = hidden.dims();
         let num_layers = directions_layers / 2;
@@ -53,19 +50,7 @@ impl<B: Backend> Model<B> {
         let hidden = Tensor::cat(vec![hidden_forward, hidden_backward], 1);
         let output = self.layer_norm.forward(hidden);
         
-        // let idx = mask_pad
-        //     .bool_not()
-        //     .flip([1])
-        //     .int()
-        //     .argmax(1)
-        //     .neg()
-        //     .add_scalar(seq_len as i32 - 1)
-        //     .unsqueeze_dim::<3>(1)
-        //     .expand([batch_size, 1, hidden_size]);
-        
-        // let output = output.gather(1, idx);
-        // let output = output.squeeze::<2>(1);
-        //let output = output.slice([0..batch_size, seq_len - 1..seq_len, 0..hidden_size]).squeeze::<2>(1);
+
         let output = self.dropout.forward(output);
         let output = self.linear.forward(output);
 
@@ -115,3 +100,23 @@ impl<B: Backend> ValidStep<IMDBClassificationTraining<B>, ClassificationOutput<B
     }
 }
 
+
+
+
+
+
+
+// == ignore ==
+// let idx = mask_pad
+//     .bool_not()
+//     .flip([1])
+//     .int()
+//     .argmax(1)
+//     .neg()
+//     .add_scalar(seq_len as i32 - 1)
+//     .unsqueeze_dim::<3>(1)
+//     .expand([batch_size, 1, hidden_size]);
+
+// let output = output.gather(1, idx);
+// let output = output.squeeze::<2>(1);
+//let output = output.slice([0..batch_size, seq_len - 1..seq_len, 0..hidden_size]).squeeze::<2>(1);
